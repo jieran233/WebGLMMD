@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title>NIUINI3D动漫展示-首页</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">    
+    <meta charset="utf-8">
+    <!-- Flat UI necessary-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/flat-ui.min.css" rel="stylesheet">
+    <link href="css/niuini.css" rel="stylesheet">
+
+
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        canvas{
+            width: 100% !important;
+            height: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border-radius: 0 !important;
+        }
+        .project_container{
+            width: 100% !important;
+            height: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border-radius: 0 !important;
+        }
+        .container{
+            width: 100% !important;
+            height: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border-radius: 0 !important;
+        }
+        body{
+            overflow-x:hidden;
+            overflow-y:hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script src="js/jquery.min-1.11.3.js"></script>
+    <div class="container">
+
+        <!-- 播放窗口 -->
+        <div class="jumbotron project_container">
+            <!--fixed  Fps Tip-->
+            <div class="infoFps">
+                <p id="otherinfo2" class="smallsize-font smallsize-font-chrome"></p>
+            </div>
+            <!--gui.dat控件-->
+            <div id="guiDat">
+            </div>
+
+            <!--fixed Row 警示框-->
+            <div class="row tipAlert" style="display:none;">
+
+
+                <div id="myAlert"
+                    class="col-lg-offset-4 col-md-offset-4 col-md-offset-3 col-sm-offset-3 col-xs-offset-1 col-xs-10 col-sm-6 col-md-4 alert alert-warning alert-dismissable "
+                    data-dismiss="modal" aria-hidden="true">
+                    <button type="button" id="closeAlertBtn" class="close">
+                        &times;
+                    </button>
+                    推荐使用WebKit、Gecko内核浏览器体验
+                    <p style="text-align: left;">
+                        PC端：按住鼠标左键，移动鼠标可移动视角；使用滚轮或按住中键，可缩放视图大小；按住右键，可平移视角位置；
+                    </p>
+                    <p style="text-align: left;">
+                        移动端：使用单指触摸移动视角；双指缩放视图大小；三指平移视角位置
+                    </p>
+
+
+                    <button class="begainPlayBtn close btn btn-default  "
+                        style="position: relative; right: 46%;display: none;">
+                        <span id="begainPlayBtn" class="glyphicon glyphicon-play">开始</span>
+                    </button>
+                </div>
+
+            </div>
+
+            <!--fixed Row 进度条-->
+            <div class="row foot">
+                <div id="progressModular"
+                    class="col-lg-offset-4 col-md-offset-4 col-md-offset-3 col-sm-offset-3 col-xs-offset-1 col-xs-10 col-sm-6 col-md-4 ">
+                    <p id="progressTitle"></p>
+                    <div id="progressBarF" class="progress progress-striped  active">
+                        <div id="progressBar" class="progress-bar progress-bar-info " style="width: 0%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!--fixed 日志显示-->
+            <div class=" infoLog" style="position:absolute">
+                <p align="left" class=" text-primary smallsize-font smallsize-font-chrome" id="progressLog">
+                </p>
+            </div>
+
+
+            <div class="footControler">
+
+
+                <div class=" controlerPause " data-toggle="tooltip" title="播放">
+                    <i id="controlerPause" class="fa fa-play" aria-hidden="true"></i>
+
+                </div>
+
+
+                <div class=" controlerFullscreen " data-toggle="tooltip" title="全屏">
+                    <i id="controlerFullscreen" class="fa fa-expand" aria-hidden="true"></i>
+                </div>
+
+                <div class=" controlerVolume " data-toggle="tooltip" title="音量100%">
+                    <i id="controlerVolume" class="fa fa-volume-up" aria-hidden="true"></i>
+
+                </div>
+
+                <div class=" controlerHeadphones " data-toggle="tooltip" title="3D音效">
+                    <i id="controlerHeadphones" class="fa fa-headphones" aria-hidden="true"></i>
+                </div>
+
+                <div class=" controlerVideo " data-toggle="tooltip" title="自动镜头">
+                    <i id="controlerVideo" class="fa fa-video-camera" aria-hidden="true"></i>
+                </div>
+
+                <div class=" controlerInfo " data-toggle="tooltip" title="显示信息">
+                    <i id="controlerInfo" class="fa fa-info-circle" aria-hidden="true"></i>
+                </div>
+
+                <div class=" controlerCog " data-toggle="tooltip" data-placement="bottom" title="设置">
+                    <i id="controlerCog" class="fa fa-cog" aria-hidden="true"></i>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    <script src="assets/js/flat-ui.min.js"></script>
+
+    <script src="ext/layer/layer.js"></script>
+
+    <script src="assets/js/carousel.js"></script>
+    <script src="ext/threejs/Three.js"></script>
+    <script src="ext/threejs/dat.gui_modify.js"></script>
+
+    <script src="ext/threejs/OrbitControls.js"></script>
+
+    <script src="ext/threejs/mmdPlay/libs/mmdparser.min.js"></script>
+    <script src="ext/threejs/mmdPlay/libs/ammo.js"></script>
+    <script src="ext/threejs/mmdPlay/libs/Detector.js"></script>
+
+    <script src="ext/threejs/mmdPlay/loaders/TGALoader.js"></script>
+    <script src="ext/threejs/mmdPlay/loaders/MMDLoader.js"></script>
+
+    <script src="ext/threejs/mmdPlay/effects/OutlineEffect.js"></script>
+
+    <script src="ext/threejs/mmdPlay/animation/CCDIKSolver.js"></script>
+    <script src="ext/threejs/mmdPlay/animation/MMDPhysics.js"></script>
+
+    <script src="ext/threejs/mmdPlay/Mirror/Mirror.js"></script>
+    <script src="ext/threejs/mmdPlay/SkyShader/SkyShader.js"></script>
+    <script src="ext/threejs/mmdPlay/jq/jquery.mousewheel.min.js"></script>
+
+    <script src="ext/threejs/project/control.js"></script>
+    <script>
+        var modelFile = "http://file.niuini.com/model/10/Tda式 洛天依·三月雨常服.pmx";
+        var motionFiles = ["http://file.niuini.com/motion/201904202121169044.vmd"];
+        var cameraFiles = ["http://file.niuini.com/camera/201904202121539841.vmd"];
+        var audioFile = "http://file.niuini.com/audio/201904202132351044.mp3";
+    </script>
+    <script src="ext/threejs/project/main.js"></script>
+</body>
+
+</html>

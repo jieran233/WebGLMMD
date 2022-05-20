@@ -1,0 +1,371 @@
+
+/*---------分页样式----------------*/
+    div.page1 {
+        margin-top: 20px;
+        margin-right: 10px;
+        float: left;
+        color: #666;
+    }
+    div.page1 span.current , div.page1 a{
+        border: 1px solid #dcdcdc;
+        display: block;
+        float: left;
+        font-size: 18px;
+        margin-right: 10px;
+        padding: 5px 16px;
+        text-decoration: none;
+        border-radius: 3px;
+    }
+    div.page1 span.current{
+        background: #1abc9c none repeat scroll 0 0 !important;
+        border-color: #1abc9c;
+        color: #ffffff !important;
+        display: block;
+        float: left;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    div.page1 a.prev,div.page1 a.next{
+        padding: 5px 4px;
+    }
+/*---------/.分页样式----------------*/
+
+/*---------播放页面----------------*/
+    /*播放窗口*/
+        .project_container{
+           height: 620px;
+           padding: 0px;
+           position: relative;
+           border-radius: 3px;
+           z-index:299;
+        }
+        .project_container p{
+            font-size: 12px;
+        }
+        canvas{
+            position: absolute;
+            top:0px;
+            left:0px;
+            border-radius: 3px;
+            z-index:2;
+        }
+    /*FPS显示*/
+        .infoFps{
+            font-size: 12px;
+            position: absolute;
+            top:7px;
+            left:7px;
+            width: 100%;
+            z-index:3;  
+        }
+        .infoFps p{
+            font-size: 15px;
+        }
+    /*guiDat显示*/
+        #guiDat{
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            display: none;
+            z-index:4;
+        }
+    /*加载日志*/
+        .infoLog{
+            font-size: 10px;
+            position: absolute;
+            bottom: 25px;
+            left:7px;
+            width: auto;
+            height: auto;
+            /*color: blue;*/
+            z-index:3;
+        }
+    /*进度条*/
+        .foot{
+            position:absolute;
+            margin:auto;
+            left:0; 
+            right:0; 
+            bottom:40%;
+            width:100%; 
+            text-align: center;
+            z-index:3;
+
+        }
+        .smallsize-font-chrome{
+            margin-top: -3px;
+            font-size:8px;
+            -webkit-transform-origin-x: 0;
+            -webkit-transform: scale(0.90);
+        }
+        .smallsize-font{
+            font-size:10.8px;
+        }
+    /*信息*/
+        .tipAlert{
+            position: absolute;
+            top: 50px;
+            margin:auto;
+            left:0; 
+            right:0; 
+            width: 100%;
+            text-align: center;
+            font-size: 15px;
+            /*color: blue;*/
+            z-index:3;
+        }
+    /*----- 底部控制器 -----*/   
+        .controlerPause{
+            position: absolute;
+            /*初始化隐藏*/
+            display: none;
+            bottom: 7px;
+            margin:auto;
+            left:25px; 
+            text-align: center;  
+            z-index:3; 
+        }
+
+        .controlerFullscreen{
+            position: absolute;
+            bottom: 7px;
+            margin:auto;
+            text-align: center;
+            z-index:3;
+            right:25px; 
+        }
+
+        .controlerVolume{
+            position: absolute;
+            bottom: 7px;
+            margin:auto;
+            text-align: center;
+            z-index:3;
+            right:55px; 
+        }
+        .controlerHeadphones{
+            position: absolute;
+            bottom: 7px;
+            margin:auto;
+            text-align: center;
+            z-index:3;
+            right:85px; 
+        }
+        .controlerVideo{
+            position: absolute;
+            bottom: 7px;
+            margin:auto;
+            text-align: center;
+            z-index:3;
+            right:115px; 
+        }
+        .controlerInfo{
+            position: absolute;
+            bottom: 7px;
+            margin:auto;
+            text-align: center;
+            z-index:3;
+            right:145px; 
+        }
+        .controlerCog{
+            position: absolute;
+            top: 7px;
+            margin:auto;
+            text-align: center;
+            z-index:3;
+            right:25px; 
+        }
+    /*-----./底部控制器 -----*/
+    /*其他*/
+        .begainPlayBtn .glyphicon{
+            color: rgba(0,0,0,0.8); 
+            font-size:20px;
+        }  
+        .footControler .glyphicon{
+            color: rgba(245,245,245,0.8); 
+            font-size:20px;
+        }
+        input{
+            line-height: normal;
+            color: black;
+        }
+        select{
+            color: black;
+        }
+        /*介绍*/
+        .project_introduce{
+            padding-left: 0px;
+        }
+        .project_introduce_line{
+            margin-bottom:18px;
+        }
+        .project_item{
+            margin-bottom: 30px;
+        }
+        .project_introduce_file{
+            margin-top: 10px;
+        }
+        /*底部分享*/
+        .project_action{
+            margin-left: 22px;
+            font-size: 15px;
+        }
+        .project_info{
+            margin-right: 5px;
+        }
+/*---------/.播放页面----------------*/
+
+/*---------个人中心----------------*/
+
+    /*头像*/
+    .center_head_img{
+        width: 100px;
+        height: 100px;
+    }
+    /*性别*/
+    .center_sex{
+        padding-left: 30px
+    }
+
+    .center_preview_img{
+        width: 150px; 
+        height: 150px;
+    }
+    .img-preview{
+        max-width: 150px;
+        max-height: 200px;
+    }
+    /*文件资源*/
+    .file-introduce{
+        height: 140px;
+        /*省略*/
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+        overflow: hidden;
+    }
+    .project-introduce{
+        display: inline-block;
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 0px;
+        text-overflow:ellipsis;
+    }
+    .project-info{
+        font-size: 14px;
+        margin-top: 4px;
+    }
+
+    .file-info{
+        font-size: 14px;
+        margin-top: 6px;
+    }
+    .file-controller{
+        margin-top: 4px;
+    }
+/*---------/.个人中心----------------*/
+
+/*---------公共部分----------------*/
+    .logo{
+        height: 20px;
+    }
+    .swiper-body{
+        height: 350px;
+    }
+    /*--项目列表--*/
+    .Htitle{
+        display:block;
+        overflow:hidden;
+        word-break:keep-all;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+    }
+
+    .about:hover{
+        cursor: pointer;
+    }
+    .short-font{
+        width: 80px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;/*加宽度width属来兼容部分浏览*/
+    }
+    /*--/.项目列表--*/
+    
+    /*--表单--*/
+
+        /*注册表单居中*/
+        .register_form{
+            padding-top: 5%;
+
+        }
+
+        /*登录表单居中*/
+        .login_form{
+            padding-top: 5%;
+        }
+
+        /*错误提示*/
+        .error{
+            color:red;
+        }
+
+        /*忘记密码连接*/
+        .login-link {
+            color: #bfc9ca;
+            display: block;
+            font-size: 13px;
+            margin-top: 15px;
+            text-align: center;
+        }
+    /*--//表单--*/
+
+    /*--粘页脚处理--*/
+
+        html,body {
+            height: 100%;
+        }
+
+        #wrap {
+            min-height: 100%;
+            height: auto !important;
+            margin: 0 auto -55px;
+        }
+
+        #push{
+            height: 100px;
+        }
+
+        .footer {
+            height:70px;
+            border-top: 1px solid #e5e5e5;
+            /*color: #777;*/
+            background-color: #f5f5f5;
+        }
+        .footer-body{
+
+            margin-top: 10px;
+        }
+
+        /*页脚行文字居中*/
+        .footer-row{
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .cnzz{
+            display: none;
+        }
+        .footer_link{
+            font-size: 15px;
+            padding-left: 4px;
+            padding-right: 4px;
+        }
+    /*--//粘页脚处理--*/
+    /*--修改---------*/
+        /*个人中心面板*/
+        .panel{
+            min-height: 0px;
+        }
+/*---------/.公共部分----------------*/
