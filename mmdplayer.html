@@ -3,7 +3,7 @@
 
 <head>
     <title>NIUINI3D动漫展示-首页</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">    
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta charset="utf-8">
     <!-- Flat UI necessary-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -20,30 +20,33 @@
     <![endif]-->
 
     <style>
-        canvas{
+        canvas {
             width: 100% !important;
             height: 100% !important;
             padding: 0 !important;
             margin: 0 !important;
             border-radius: 0 !important;
         }
-        .project_container{
+
+        .project_container {
             width: 100% !important;
             height: 100% !important;
             padding: 0 !important;
             margin: 0 !important;
             border-radius: 0 !important;
         }
-        .container{
+
+        .container {
             width: 100% !important;
             height: 100% !important;
             padding: 0 !important;
             margin: 0 !important;
             border-radius: 0 !important;
         }
-        body{
-            overflow-x:hidden;
-            overflow-y:hidden;
+
+        body {
+            overflow-x: hidden;
+            overflow-y: hidden;
         }
     </style>
 
@@ -150,40 +153,58 @@
         </div>
 
 
-    <script src="assets/js/flat-ui.min.js"></script>
+        <script src="assets/js/flat-ui.min.js"></script>
 
-    <script src="ext/layer/layer.js"></script>
+        <script src="ext/layer/layer.js"></script>
 
-    <script src="assets/js/carousel.js"></script>
-    <script src="ext/threejs/Three.js"></script>
-    <script src="ext/threejs/dat.gui_modify.js"></script>
+        <script src="assets/js/carousel.js"></script>
+        <script src="ext/threejs/Three.js"></script>
+        <script src="ext/threejs/dat.gui_modify.js"></script>
 
-    <script src="ext/threejs/OrbitControls.js"></script>
+        <script src="ext/threejs/OrbitControls.js"></script>
 
-    <script src="ext/threejs/mmdPlay/libs/mmdparser.min.js"></script>
-    <script src="ext/threejs/mmdPlay/libs/ammo.js"></script>
-    <script src="ext/threejs/mmdPlay/libs/Detector.js"></script>
+        <script src="ext/threejs/mmdPlay/libs/mmdparser.min.js"></script>
+        <script src="ext/threejs/mmdPlay/libs/ammo.js"></script>
+        <script src="ext/threejs/mmdPlay/libs/Detector.js"></script>
 
-    <script src="ext/threejs/mmdPlay/loaders/TGALoader.js"></script>
-    <script src="ext/threejs/mmdPlay/loaders/MMDLoader.js"></script>
+        <script src="ext/threejs/mmdPlay/loaders/TGALoader.js"></script>
+        <script src="ext/threejs/mmdPlay/loaders/MMDLoader.js"></script>
 
-    <script src="ext/threejs/mmdPlay/effects/OutlineEffect.js"></script>
+        <script src="ext/threejs/mmdPlay/effects/OutlineEffect.js"></script>
 
-    <script src="ext/threejs/mmdPlay/animation/CCDIKSolver.js"></script>
-    <script src="ext/threejs/mmdPlay/animation/MMDPhysics.js"></script>
+        <script src="ext/threejs/mmdPlay/animation/CCDIKSolver.js"></script>
+        <script src="ext/threejs/mmdPlay/animation/MMDPhysics.js"></script>
 
-    <script src="ext/threejs/mmdPlay/Mirror/Mirror.js"></script>
-    <script src="ext/threejs/mmdPlay/SkyShader/SkyShader.js"></script>
-    <script src="ext/threejs/mmdPlay/jq/jquery.mousewheel.min.js"></script>
+        <script src="ext/threejs/mmdPlay/Mirror/Mirror.js"></script>
+        <script src="ext/threejs/mmdPlay/SkyShader/SkyShader.js"></script>
+        <script src="ext/threejs/mmdPlay/jq/jquery.mousewheel.min.js"></script>
 
-    <script src="ext/threejs/project/control.js"></script>
-    <script>
-        var modelFile = "http://file.niuini.com/model/10/Tda式 洛天依·三月雨常服.pmx";
-        var motionFiles = ["http://file.niuini.com/motion/201904202121169044.vmd"];
-        var cameraFiles = ["http://file.niuini.com/camera/201904202121539841.vmd"];
-        var audioFile = "http://file.niuini.com/audio/201904202132351044.mp3";
-    </script>
-    <script src="ext/threejs/project/main.js"></script>
+        <script src="ext/threejs/project/control.js"></script>
+        <script>
+            var SERVER_URL = "http://127.0.0.1:5500/";
+            var modelFile = SERVER_URL + getQueryVariable("model");
+            var motionFiles = [
+                SERVER_URL + getQueryVariable("motion")
+            ];
+            var cameraFiles = [
+                SERVER_URL + getQueryVariable("camera")
+            ];
+            var audioFile = SERVER_URL + getQueryVariable("audio")
+
+
+            function getQueryVariable(variable) {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    if (pair[0] == variable) {
+                        return pair[1];
+                    }
+                }
+                return (false);
+            }
+        </script>
+        <script src="ext/threejs/project/main.js"></script>
 </body>
 
 </html>

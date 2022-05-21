@@ -64,7 +64,8 @@
         function MmdScen(){
             
             //---------------场景
-            this.background = 0xffffff;
+            // this.background = 0xffffff;
+            this.background = 0x000000;
             this.shadowMap = true;
             //尺寸
             this.size_Width = play_Width();
@@ -593,7 +594,8 @@
             $(".controlerPause").css("display","inline");
             
             //延时隐藏加载信息
-            var c=5;
+            // var c=5;
+            var c=1;
             var t;
             function timedCount()
             {
@@ -738,7 +740,8 @@
                 //--------------------------------------
                
                 //场景设置
-                    this.sky = true;
+                    // this.sky = true;
+                    this.sky = false;
                     this.plane = myMmdPlane.planeName;
                     this.gridHelper = myMmdPlane.gridHelperName;
 
@@ -830,6 +833,7 @@
                     }
                 });
 
+                scene.remove(sky.mesh);
                 
                 sceneSet.add( controlObject, 'plane', [ '镜面', '普通', '无' ] ).name("地面").onChange(function(value){
                     if(value == "镜面"){
@@ -841,6 +845,9 @@
                     } 
                 });
 
+                myMmdPlane.RemovePlane();
+
+
                 sceneSet.add( controlObject, 'gridHelper' , [ '矩形', '圆', '无' ] ).name("网格").onChange(function(value){
                     if(value == "矩形"){
                         myMmdPlane.AddGridHelper();
@@ -850,6 +857,8 @@
                         myMmdPlane.RemoveGridHelper();
                     } 
                 });
+
+                myMmdPlane.RemoveGridHelper();
             
             //========================================================
 
@@ -952,54 +961,54 @@
         function HandleResize() {
             SLOG("屏幕发生变化");
 
-            // if(isFullscreen()){
-            //     SLOG("全屏");
-            //     $("body").css({
-            //       "overflow":"hidden"
+            if(isFullscreen()){
+                SLOG("全屏");
+                $("body").css({
+                  "overflow":"hidden"
                   
-            //     });
-            //     $("canvas").css({
-            //       "border-radius":"0px",
+                });
+                $("canvas").css({
+                  "border-radius":"0px",
                   
-            //     });
-            //      $(".project_container").css({
-            //       "position":"fixed",
-            //       "top":"0px",
-            //       "left":"0px",
-            //       "width":window.innerWidth+"px",
-            //       "height":screen.height+"px",
-            //       "z-index":"99999",
-            //       "border-radius":"0px",
+                });
+                 $(".project_container").css({
+                  "position":"fixed",
+                  "top":"0px",
+                  "left":"0px",
+                  "width":window.innerWidth+"px",
+                  "height":screen.height+"px",
+                  "z-index":"99999",
+                  "border-radius":"0px",
                   
-            //     });
+                });
 
-            //    }else{
-            //     SLOG("退出全屏");
+               }else{
+                SLOG("退出全屏");
 
-            //      $("body").css({
-            //         "overflow":""
+                 $("body").css({
+                    "overflow":""
                     
-            //       });
-            //       $("canvas").css({
-            //         "border-radius":"3px",
+                  });
+                  $("canvas").css({
+                    "border-radius":"3px",
                     
-            //       });
-            //        $(".project_container").css({
-            //         "position":"relative",
-            //         "top":"0px",
-            //         "left":"0px",
-            //         "width":"auto",
-            //         "height":"600px",
-            //         "z-index":"",
-            //         "border-radius":"3px",
+                  });
+                   $(".project_container").css({
+                    "position":"relative",
+                    "top":"0px",
+                    "left":"0px",
+                    "width":"auto",
+                    "height":"600px",
+                    "z-index":"",
+                    "border-radius":"3px",
                     
-            //       }); 
+                  }); 
                   
-            //    } 
-            //    myMmdScen.camera.aspect = play_Width() / play_Height();
-            //    myMmdScen.camera.updateProjectionMatrix();
-            //    //effect.setSize( window.innerWidth(), window.innerHeight() );
-            //    renderer.setSize( play_Width(), play_Height() );
+               } 
+               myMmdScen.camera.aspect = play_Width() / play_Height();
+               myMmdScen.camera.updateProjectionMatrix();
+               //effect.setSize( window.innerWidth(), window.innerHeight() );
+               renderer.setSize( play_Width(), play_Height() );
         }
         //进入全屏
         function requestFullScreen() {
